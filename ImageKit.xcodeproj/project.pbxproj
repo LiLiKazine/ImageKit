@@ -7,10 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		226A6C632C0F147D0063BC3A /* ImageKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 226A6C622C0F147D0063BC3A /* ImageKit.h */; };
+		226A6C6F2C0F17430063BC3A /* IKImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6A2C0F17430063BC3A /* IKImage.swift */; };
+		226A6C702C0F17430063BC3A /* IKImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6A2C0F17430063BC3A /* IKImage.swift */; };
+		226A6C712C0F17430063BC3A /* IKImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6B2C0F17430063BC3A /* IKImagePresenter.swift */; };
+		226A6C722C0F17430063BC3A /* IKImagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6B2C0F17430063BC3A /* IKImagePresenter.swift */; };
+		226A6C732C0F17430063BC3A /* IKImage+Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6C2C0F17430063BC3A /* IKImage+Binder.swift */; };
+		226A6C742C0F17430063BC3A /* IKImage+Binder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6C2C0F17430063BC3A /* IKImage+Binder.swift */; };
+		226A6C752C0F17430063BC3A /* IKImagePresenter+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6D2C0F17430063BC3A /* IKImagePresenter+Image.swift */; };
+		226A6C762C0F17430063BC3A /* IKImagePresenter+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6D2C0F17430063BC3A /* IKImagePresenter+Image.swift */; };
+		226A6C772C0F17430063BC3A /* IKImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6E2C0F17430063BC3A /* IKImageRenderer.swift */; };
+		226A6C782C0F17430063BC3A /* IKImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C6E2C0F17430063BC3A /* IKImageRenderer.swift */; };
+		226A6C7B2C0F17520063BC3A /* Plugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C792C0F17520063BC3A /* Plugins.swift */; };
+		226A6C7C2C0F17520063BC3A /* Plugins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C792C0F17520063BC3A /* Plugins.swift */; };
+		226A6C7D2C0F17520063BC3A /* RendererContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C7A2C0F17520063BC3A /* RendererContext.swift */; };
+		226A6C7E2C0F17520063BC3A /* RendererContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C7A2C0F17520063BC3A /* RendererContext.swift */; };
+		226A6C842C0F177D0063BC3A /* LocalDataRetriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C832C0F177D0063BC3A /* LocalDataRetriver.swift */; };
+		226A6C852C0F177D0063BC3A /* LocalDataRetriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A6C832C0F177D0063BC3A /* LocalDataRetriver.swift */; };
 		22C0810D2C0F1153002820F9 /* ImageKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = 22C0810C2C0F1153002820F9 /* ImageKit.docc */; };
 		22C081132C0F1153002820F9 /* ImageKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22C081082C0F1153002820F9 /* ImageKit.framework */; };
 		22C081182C0F1153002820F9 /* ImageKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C081172C0F1153002820F9 /* ImageKitTests.swift */; };
-		22C081192C0F1153002820F9 /* ImageKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 22C0810B2C0F1153002820F9 /* ImageKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,8 +40,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		226A6C622C0F147D0063BC3A /* ImageKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageKit.h; sourceTree = "<group>"; };
+		226A6C6A2C0F17430063BC3A /* IKImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKImage.swift; sourceTree = "<group>"; };
+		226A6C6B2C0F17430063BC3A /* IKImagePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKImagePresenter.swift; sourceTree = "<group>"; };
+		226A6C6C2C0F17430063BC3A /* IKImage+Binder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IKImage+Binder.swift"; sourceTree = "<group>"; };
+		226A6C6D2C0F17430063BC3A /* IKImagePresenter+Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IKImagePresenter+Image.swift"; sourceTree = "<group>"; };
+		226A6C6E2C0F17430063BC3A /* IKImageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IKImageRenderer.swift; sourceTree = "<group>"; };
+		226A6C792C0F17520063BC3A /* Plugins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plugins.swift; sourceTree = "<group>"; };
+		226A6C7A2C0F17520063BC3A /* RendererContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RendererContext.swift; sourceTree = "<group>"; };
+		226A6C832C0F177D0063BC3A /* LocalDataRetriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalDataRetriver.swift; sourceTree = "<group>"; };
 		22C081082C0F1153002820F9 /* ImageKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ImageKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		22C0810B2C0F1153002820F9 /* ImageKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageKit.h; sourceTree = "<group>"; };
 		22C0810C2C0F1153002820F9 /* ImageKit.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = ImageKit.docc; sourceTree = "<group>"; };
 		22C081122C0F1153002820F9 /* ImageKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImageKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C081172C0F1153002820F9 /* ImageKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageKitTests.swift; sourceTree = "<group>"; };
@@ -50,6 +74,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		226A6C822C0F177D0063BC3A /* Retrivers */ = {
+			isa = PBXGroup;
+			children = (
+				226A6C832C0F177D0063BC3A /* LocalDataRetriver.swift */,
+			);
+			path = Retrivers;
+			sourceTree = "<group>";
+		};
+		226A6C862C0F17910063BC3A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				226A6C6A2C0F17430063BC3A /* IKImage.swift */,
+				226A6C6C2C0F17430063BC3A /* IKImage+Binder.swift */,
+				226A6C6B2C0F17430063BC3A /* IKImagePresenter.swift */,
+				226A6C6D2C0F17430063BC3A /* IKImagePresenter+Image.swift */,
+				226A6C6E2C0F17430063BC3A /* IKImageRenderer.swift */,
+				226A6C792C0F17520063BC3A /* Plugins.swift */,
+				226A6C7A2C0F17520063BC3A /* RendererContext.swift */,
+				226A6C822C0F177D0063BC3A /* Retrivers */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
 		22C080FE2C0F1153002820F9 = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +118,8 @@
 		22C0810A2C0F1153002820F9 /* ImageKit */ = {
 			isa = PBXGroup;
 			children = (
-				22C0810B2C0F1153002820F9 /* ImageKit.h */,
+				226A6C622C0F147D0063BC3A /* ImageKit.h */,
+				226A6C862C0F17910063BC3A /* Sources */,
 				22C0810C2C0F1153002820F9 /* ImageKit.docc */,
 			);
 			path = ImageKit;
@@ -92,7 +140,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22C081192C0F1153002820F9 /* ImageKit.h in Headers */,
+				226A6C632C0F147D0063BC3A /* ImageKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +242,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226A6C732C0F17430063BC3A /* IKImage+Binder.swift in Sources */,
+				226A6C712C0F17430063BC3A /* IKImagePresenter.swift in Sources */,
+				226A6C7B2C0F17520063BC3A /* Plugins.swift in Sources */,
 				22C0810D2C0F1153002820F9 /* ImageKit.docc in Sources */,
+				226A6C7D2C0F17520063BC3A /* RendererContext.swift in Sources */,
+				226A6C752C0F17430063BC3A /* IKImagePresenter+Image.swift in Sources */,
+				226A6C6F2C0F17430063BC3A /* IKImage.swift in Sources */,
+				226A6C842C0F177D0063BC3A /* LocalDataRetriver.swift in Sources */,
+				226A6C772C0F17430063BC3A /* IKImageRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +258,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226A6C742C0F17430063BC3A /* IKImage+Binder.swift in Sources */,
+				226A6C722C0F17430063BC3A /* IKImagePresenter.swift in Sources */,
+				226A6C7C2C0F17520063BC3A /* Plugins.swift in Sources */,
 				22C081182C0F1153002820F9 /* ImageKitTests.swift in Sources */,
+				226A6C7E2C0F17520063BC3A /* RendererContext.swift in Sources */,
+				226A6C762C0F17430063BC3A /* IKImagePresenter+Image.swift in Sources */,
+				226A6C702C0F17430063BC3A /* IKImage.swift in Sources */,
+				226A6C852C0F177D0063BC3A /* LocalDataRetriver.swift in Sources */,
+				226A6C782C0F17430063BC3A /* IKImageRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +471,7 @@
 		22C081202C0F1153002820F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJBUF7JSHK;
@@ -423,6 +488,7 @@
 		22C081212C0F1153002820F9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PJBUF7JSHK;
