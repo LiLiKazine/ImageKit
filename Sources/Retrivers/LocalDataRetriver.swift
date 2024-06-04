@@ -6,21 +6,20 @@
 //
 
 import Foundation
-
+import ArchiverKit
 
 public class LocalDataRetriver: DataRetriver {
     
-    public var cacheKey: String? { localPath }
+    public var cacheKey: String? { relativePath }
     
-    private let localPath: String
+    private let relativePath: String
     
-    public init(localPath: String) {
-        self.localPath = localPath
+    public init(relativePath: String) {
+        self.relativePath = relativePath
     }
     
     public func retrive() async throws -> Data {
-        try Data(contentsOf: URL(filePath: localPath))
+        try Data(from: relativePath)
     }
-    
     
 }
