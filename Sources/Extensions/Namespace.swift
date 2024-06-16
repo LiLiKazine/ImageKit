@@ -18,10 +18,10 @@ public protocol IKImageCompatible { }
 
 extension IKImageCompatible {
     /// Gets a namespace holder for Kingfisher compatible types.
-    public var ak: IKImageWrapper<Self> {
+    public var ik: IKImageWrapper<Self> {
         get { return IKImageWrapper(self) }
         set { }
     }
 }
 
-extension Data: IKImageWrapper {}
+extension Data: IKImageCompatible {}
