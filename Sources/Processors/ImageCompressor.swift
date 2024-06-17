@@ -24,12 +24,12 @@ extension ImageCompressor where Input == Data {
         return self.jpeg(quality: quality).map { UIImage(data: $0) } ?? nil
     }
     
-    func jpeg(roof size: CGSize) -> Data? {
+    func jpeg(roof size: CGSize, quality: CGFloat = 1.0) -> Data? {
         guard let image = UIImage(data: input)?.cgImage else {
             return nil
         }
         let renderer = UIGraphicsImageRenderer(size: size)
-        return renderer.jpegData(withCompressionQuality: 1) { context in
+        return renderer.jpegData(withCompressionQuality: quality) { context in
             context.cgContext.draw(image, in: .init(origin: .zero, size: size), byTiling: false)
         }
     }

@@ -16,8 +16,8 @@ extension IKImageWrapper where Base == Data {
         return DataWrapper(input: base).jpeg(quality: quality)
     }
     
-    public func jpeg(roof size: CGSize) -> Data? {
-        return DataWrapper(input: base).jpeg(roof: size)
+    public func jpeg(roof size: CGSize, quality: CGFloat = 1.0) -> Data? {
+        return DataWrapper(input: base).jpeg(roof: size, quality: quality)
     }
 }
 
