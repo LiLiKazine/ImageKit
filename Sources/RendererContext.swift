@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public extension IKImage {
     
@@ -18,11 +19,22 @@ public extension IKImage {
     enum Source {
         case systemImage(String)
         case retriver(DataRetriver)
+        
+        func image() async throws -> UIImage? {
+            switch self {
+            case .systemImage(let string):
+                return .init(systemName: string)
+            case .retriver(let dataRetriver):
+                let data = try await dataRetriver.retrive()
+                return .init(data: data)
+            }
+        }
     }
     
     class Context<RendererView> {
         
         let source: Source
+        var backupSource: Source?
         var options: Options
         var configurations: [(RendererView) -> RendererView]
         

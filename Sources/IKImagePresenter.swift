@@ -49,3 +49,12 @@ extension IKImagePresenter {
     }
     
 }
+
+extension IKImagePresenter {
+    
+    func backup(source: IKImage.Source) -> Self {
+        context.backupSource = source
+        return self
+    }
+    
+}
