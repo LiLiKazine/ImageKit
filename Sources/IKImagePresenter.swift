@@ -28,17 +28,17 @@ extension IKImagePresenter {
 
 extension IKImagePresenter {
     
-    func thumbnailGenerator(_ generator: ThumbnailGenerator) -> Self {
+    public func thumbnailGenerator(_ generator: ThumbnailGenerator) -> Self {
         context.options.thumbnailGenerator = generator
         return self
     }
     
-    func memoryCache(_ cache: ImageMemoryCache) -> Self {
+    public func memoryCache(_ cache: ImageMemoryCache) -> Self {
         context.options.memoryCache = cache
         return self
     }
     
-    func diskCache(_ cache: ImageDiskCache) -> Self {
+    public func diskCache(_ cache: ImageDiskCache) -> Self {
         context.options.diskCache = cache
         return self
     }
@@ -52,8 +52,13 @@ extension IKImagePresenter {
 
 extension IKImagePresenter {
     
-    func backup(source: IKImage.Source) -> Self {
+    public func backup(source: IKImage.Source) -> Self {
         context.backupSource = source
+        return self
+    }
+    
+    public func backup(retriver: DataRetriver?) -> Self {
+        context.backupSource = retriver.map { .retriver($0) }
         return self
     }
     
