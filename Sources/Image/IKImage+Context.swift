@@ -10,27 +10,6 @@ import UIKit
 
 public extension IKImage {
     
-    struct Options {
-        public var thumbnailGenerator: ThumbnailGenerator?
-        public var memoryCache: ImageMemoryCache?
-        public var diskCache: ImageDiskCache?
-    }
-    
-    enum Source {
-        case systemImage(String)
-        case retriver(DataRetriver)
-        
-        func image() async throws -> UIImage? {
-            switch self {
-            case .systemImage(let string):
-                return .init(systemName: string)
-            case .retriver(let dataRetriver):
-                let data = try await dataRetriver.retrive()
-                return .init(data: data)
-            }
-        }
-    }
-    
     class Context<RendererView> {
         
         let source: Source
@@ -50,9 +29,39 @@ public extension IKImage {
             self.init(source: .systemImage(systemName))
         }
         
+        convenience init(image: UIImage) {
+            self.init(source: .image(image))
+        }
+        
         convenience init(retriver: DataRetriver) {
             self.init(source: .retriver(retriver))
         }
         
+    }
+}
+
+extension IKImage {
+    struct Options {
+        var thumbnailGenerator: ThumbnailGenerator?
+        var memoryCache: ImageMemoryCache?
+        var diskCache: ImageDiskCache?
+    }
+    
+    enum Source {
+        case systemImage(String)
+        case image(UIImage)
+        case retriver(DataRetriver)
+        
+        func image() async throws -> UIImage? {
+            switch self {
+            case .systemImage(let string):
+                return .init(systemName: string)
+            case .image(let image):
+                return image
+            case .retriver(let dataRetriver):
+                let data = try await dataRetriver.retrive()
+                return .init(data: data)
+            }
+        }
     }
 }

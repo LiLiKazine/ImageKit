@@ -52,11 +52,6 @@ extension IKImagePresenter {
 
 extension IKImagePresenter {
     
-    public func backup(source: IKImage.Source) -> Self {
-        context.backupSource = source
-        return self
-    }
-    
     public func backup(retriver: DataRetriver?) -> Self {
         context.backupSource = retriver.map { .retriver($0) }
         return self

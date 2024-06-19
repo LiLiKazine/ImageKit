@@ -24,4 +24,3 @@ extension IKImageCompatible {
     }
 }
 
-extension Data: IKImageCompatible {}

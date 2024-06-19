@@ -25,3 +25,5 @@ extension IKImageWrapper where Base == Data {
 private struct DataWrapper: ImageCompressor {
     let input: Data
 }
+
+extension Data: IKImageCompatible {}
