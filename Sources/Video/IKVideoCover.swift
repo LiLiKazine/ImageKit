@@ -13,7 +13,7 @@ public struct IKVideoCover: View {
     let image: Image
     let duration: CMTime?
     
-    public init(image: Image, duration: CMTime?) {
+    public init(image: Image, duration: CMTime? = nil) {
         self.image = image
         self.duration = duration
     }
@@ -41,7 +41,7 @@ public struct IKVideoCover: View {
 }
 
 extension IKVideoCover {
-    public init(image: UIImage, duration: CMTime?) {
+    public init(image: UIImage, duration: CMTime? = nil) {
         self.init(image: Image(uiImage: image), duration: duration)
     }
 }

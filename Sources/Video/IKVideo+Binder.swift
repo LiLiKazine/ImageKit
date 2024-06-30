@@ -11,17 +11,27 @@ import CoreMedia.CMTime
 
 extension IKVideo {
     @Observable
-    class Binder {
+    class Binder: Identifiable {
+        let id = UUID()
+        
         var cover: UIImage?
-        var url: URL?
         var duration: CMTime?
-        
-        var isPlaying: Bool = false
-        
-        func load(with source: Source) async throws {
-            
+                
+        func load(with source: Source, currentPlaying: PlayingVideo) {
+            switch source {
+            case .local(let video):
+                update(with: video, currentPlaying: currentPlaying)
+            }
         }
         
+        func update(with video: LocalVideo, currentPlaying: PlayingVideo) {
+            currentPlaying.setup(
+                player: .init(url: video.url),
+                uuid: id
+            )
+            cover = video.cover
+            duration = video.duration
+        }
     }
     
 }

@@ -31,6 +31,23 @@ extension IKVideo {
         convenience init(localVideo: LocalVideo) {
             self.init(source: .local(localVideo))
         }
+        
+        convenience init(url: URL, cover: UIImage? = nil, duration: CMTime? = nil) {
+            self.init(source: .local(VideoSource(cover: cover, url: url, duration: duration)))
+        }
     }
     
+}
+
+
+private struct VideoSource: LocalVideo {
+    let cover: UIImage?
+    let url: URL
+    let duration: CMTime?
+    
+    init(cover: UIImage? = nil, url: URL, duration: CMTime? = nil) {
+        self.cover = cover
+        self.url = url
+        self.duration = duration
+    }
 }
