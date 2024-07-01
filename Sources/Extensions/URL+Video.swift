@@ -18,3 +18,5 @@ extension IKImageWrapper where Base == URL {
         return image
     }
 }
+
+extension URL: IKImageCompatible {}
