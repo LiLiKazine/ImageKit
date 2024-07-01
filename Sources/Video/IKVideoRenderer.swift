@@ -21,19 +21,27 @@ struct IKVideoRenderer: View {
     
     var body: some View {
         ZStack {
-            if currentPlaying.player != nil && currentPlaying.uuid == binder.id {
+            if currentPlaying.isPlaying && currentPlaying.uuid == binder.id {
                 IKVideoPlayer()
             } else {
                 Cover(image: binder.cover, duration: binder.duration)
             }
-            if !currentPlaying.isPlaying {
-                PlayButton {
-                    play()
+            
+            if binder.showControl {
+                PlayButton(isPlaying: currentPlaying.isPlaying) {
+                    if currentPlaying.isPlaying {
+                        pause()
+                    } else {
+                        play()
+                    }
                 }
+                .frame(width: 22, height: 22)
             }
         }
+        .clipped()
         .task {
             binder.load(with: context.source, currentPlaying: currentPlaying)
+            binder.setup(contorlVisiblity: context.controlVisibility)
         }
         
     }
@@ -41,6 +49,10 @@ struct IKVideoRenderer: View {
     
     func play() {
         currentPlaying.play()
+    }
+    
+    func pause() {
+        currentPlaying.pause()
     }
 }
 
@@ -64,19 +76,25 @@ private struct Cover: View {
 
 private struct PlayButton: View {
     
+    let isPlaying: Bool
     let action: () -> Void
     
     var body: some View {
         Button(action: action) {
-            Image(systemName: "play.circle.fill")
+            Circle().fill(.white)
+                .overlay {
+                    Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .padding(2)
+                }
                 .opacity(0.8)
-                .overlay(.white, in: .circle.stroke(style: StrokeStyle()))
         }
         .buttonStyle(.plain)
     }
 }
 
 #Preview {
-    IKVideoRenderer(context: .init(url: URL(filePath: "/Users/lili/Developer/ImageKit/demo.mp4")))
-        .environment(PlayingVideo.demo)
+    IKVideoRenderer(context: .demo)
+        .environment(PlayingVideo())
 }

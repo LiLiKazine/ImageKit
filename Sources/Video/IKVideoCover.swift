@@ -34,7 +34,7 @@ public struct IKVideoCover: View {
                     Text(duration.ik.standardTime)
                         .font(.footnote)
                         .foregroundStyle(.white)
-                        .padding()
+                        .padding(4)
                 }
             }
     }

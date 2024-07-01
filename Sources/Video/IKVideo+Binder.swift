@@ -14,6 +14,8 @@ extension IKVideo {
     class Binder: Identifiable {
         let id = UUID()
         
+        var showControl: Bool = false
+        
         var cover: UIImage?
         var duration: CMTime?
                 
@@ -31,6 +33,15 @@ extension IKVideo {
             )
             cover = video.cover
             duration = video.duration
+        }
+        
+        func setup(contorlVisiblity: IKVideo.ContorlVisiblity) {
+            switch contorlVisiblity {
+            case .alwaysShow:
+                self.showControl = true
+            case .alwaysHide:
+                self.showControl = false
+            }
         }
     }
     

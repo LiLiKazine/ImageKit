@@ -13,6 +13,12 @@ public struct IKVideo: View {
     
     public var body: some View {
         IKVideoRenderer(context: context)
+            .frame(width: 300, height: 120)
     }
 }
 
+
+#Preview {
+    IKVideo(context: .demo)
+        .environment(PlayingVideo())
+}

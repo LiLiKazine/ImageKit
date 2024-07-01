@@ -21,20 +21,39 @@ extension IKVideo {
 //        case stream
     }
     
+    enum ContorlVisiblity {
+        case alwaysShow
+        case alwaysHide
+    }
+    
     class Context {
         let source: Source
+        let controlVisibility: ContorlVisiblity
 
-        init(source: Source) {
+        init(source: Source, controlVisiblity: ContorlVisiblity) {
             self.source = source
+            self.controlVisibility = controlVisiblity
         }
         
-        convenience init(localVideo: LocalVideo) {
-            self.init(source: .local(localVideo))
+        convenience init(localVideo: LocalVideo, controlVisiblity: ContorlVisiblity = .alwaysShow) {
+            self.init(source: .local(localVideo), controlVisiblity: controlVisiblity)
         }
         
-        convenience init(url: URL, cover: UIImage? = nil, duration: CMTime? = nil) {
-            self.init(source: .local(VideoSource(cover: cover, url: url, duration: duration)))
+        convenience init(url: URL) {
+            self.init(localVideo: VideoSource(url: url))
         }
+        
+        #if DEBUG
+        static let demo: Context =
+        {
+            let source = VideoSource(
+                cover: UIImage(contentsOfFile: "/Users/lili/Developer/ImageKit/cover.png"),
+                url: URL(filePath: "/Users/lili/Developer/ImageKit/demo.mp4"),
+                duration: .init(seconds: 200, preferredTimescale: 1)
+            )
+            return .init(localVideo: source)
+        }()
+        #endif
     }
     
 }
