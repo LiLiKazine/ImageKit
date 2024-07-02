@@ -10,9 +10,9 @@ import AVKit
 import Combine
 
 @Observable
-public class PlayingVideo {
+class PlayingVideo {
     
-    public var hideBuiltInControls: Bool
+    var hideBuiltInControls: Bool
 
     private(set) var player: AVPlayer?
     
@@ -25,9 +25,9 @@ public class PlayingVideo {
         self.hideBuiltInControls = hideBuiltInControls
     }
     
-    public static let shared = PlayingVideo()
+    static let shared = PlayingVideo()
     
-    public func setup(player: AVPlayer?, uuid: UUID? = nil) {
+    func setup(player: AVPlayer?, uuid: UUID? = nil) {
         self.player = player
         self.uuid = uuid
         player?.publisher(for: \.timeControlStatus, options: [.initial, .new])
@@ -40,14 +40,14 @@ public class PlayingVideo {
             
     }
     
-    public func play(_ player: AVPlayer? = nil) {
+    func play(_ player: AVPlayer? = nil, uuid: UUID? = nil) {
         if let player {
-            setup(player: player)
+            setup(player: player, uuid: uuid)
         }
         self.player?.play()
     }
     
-    public func pause() {
+    func pause() {
         player?.pause()
     }
     

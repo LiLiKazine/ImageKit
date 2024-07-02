@@ -7,16 +7,19 @@
 
 import SwiftUI
 import AVKit
+import Combine
 
 struct IKVideoRenderer: View {
     
     let context: IKVideo.Context
     
+    private var action: IKVideo.ControlAction.Binding
     @State private var binder = IKVideo.Binder()
     @Environment(PlayingVideo.self) private var currentPlaying
     
-    init(context: IKVideo.Context) {
+    init(context: IKVideo.Context, action: IKVideo.ControlAction.Binding) {
         self.context = context
+        self.action = action
     }
     
     var body: some View {
@@ -39,8 +42,14 @@ struct IKVideoRenderer: View {
             }
         }
         .clipped()
+        .onReceive(action) { action in
+            switch action {
+            case .play: play()
+            case .pause: pause()
+            }
+        }
         .task {
-            binder.load(with: context.source, currentPlaying: currentPlaying)
+            binder.load(with: context.source)
             binder.setup(contorlVisiblity: context.controlVisibility)
         }
         
@@ -48,7 +57,7 @@ struct IKVideoRenderer: View {
     
     
     func play() {
-        currentPlaying.play()
+        binder.play(with: context.source, currentPlaying: currentPlaying)
     }
     
     func pause() {
@@ -95,6 +104,6 @@ private struct PlayButton: View {
 }
 
 #Preview {
-    IKVideoRenderer(context: .demo)
+    IKVideoRenderer(context: .demo, action: .init(publisher: Just.init(.play).eraseToAnyPublisher()))
         .environment(PlayingVideo())
 }

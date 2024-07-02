@@ -7,7 +7,7 @@
 
 import SwiftUI
 import UIKit
-import CoreMedia.CMTime
+import AVKit
 
 extension IKVideo {
     @Observable
@@ -19,20 +19,20 @@ extension IKVideo {
         var cover: UIImage?
         var duration: CMTime?
                 
-        func load(with source: Source, currentPlaying: PlayingVideo) {
+        func load(with source: Source) {
             switch source {
             case .local(let video):
-                update(with: video, currentPlaying: currentPlaying)
+                cover = video.cover
+                duration = video.duration
             }
         }
         
-        func update(with video: LocalVideo, currentPlaying: PlayingVideo) {
-            currentPlaying.setup(
-                player: .init(url: video.url),
-                uuid: id
-            )
-            cover = video.cover
-            duration = video.duration
+        func play(with source: Source, currentPlaying: PlayingVideo) {
+            switch source {
+            case .local(let video):
+                let player = AVPlayer(url: video.url)
+                currentPlaying.play(player, uuid: id)
+            }
         }
         
         func setup(contorlVisiblity: IKVideo.ContorlVisiblity) {

@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreMedia.CMTime
+import Combine
+import SwiftUI
 
 public protocol LocalVideo {
     var cover: UIImage? { get }
@@ -16,15 +18,22 @@ public protocol LocalVideo {
 
 extension IKVideo {
         
+    public enum ContorlVisiblity {
+        case alwaysShow
+        case alwaysHide
+    }
+    
+    public enum Control: Equatable {
+        case play
+        case pause
+    }
+    
     enum Source {
         case local(LocalVideo)
 //        case stream
     }
     
-    enum ContorlVisiblity {
-        case alwaysShow
-        case alwaysHide
-    }
+    
     
     class Context {
         let source: Source
