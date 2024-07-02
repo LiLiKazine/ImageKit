@@ -13,7 +13,12 @@ public struct IKVideo: View {
     
     public var body: some View {
         IKVideoRenderer(context: context)
-            .frame(width: 300, height: 120)
+    }
+}
+
+extension IKVideo {
+    public init(url: URL) {
+        self.init(context: .init(url: url))
     }
 }
 
