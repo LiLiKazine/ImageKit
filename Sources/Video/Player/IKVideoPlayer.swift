@@ -10,40 +10,43 @@ import AVKit
 
 public struct IKVideoPlayer: View {
     
+    private let hideBuiltInControls: Bool
     @Environment(PlayingVideo.self) private var currentPlaying: PlayingVideo
     
-    init() {}
+    init(hideBuiltInControls: Bool = false) {
+        self.hideBuiltInControls = hideBuiltInControls
+    }
     
     public var body: some View {
-        if currentPlaying.hideBuiltInControls {
+        if hideBuiltInControls {
             NakedPlayer(player: currentPlaying.player)
         } else {
             VideoPlayer(player: currentPlaying.player)
         }
-            
     }
+    
 }
 
 extension IKVideoPlayer {
-    func hideBuiltInControls(_ value: Bool) -> Self {
-        currentPlaying.hideBuiltInControls = value
-        return self
+    public func hideBuiltInControls(_ value: Bool) -> IKVideoPlayer {
+        return IKVideoPlayer(hideBuiltInControls: value)
     }
+
 }
 
 extension IKVideoPlayer {
     
-    func setMuted(_ value: Bool?) -> Self {
+    public func setMuted(_ value: Bool?) -> Self {
         updatePlayer(value, of: \.isMuted)
         return self
     }
     
-    func setVolume(_ value: Float?) -> Self {
+    public func setVolume(_ value: Float?) -> Self {
         updatePlayer(value, of: \.volume)
         return self
     }
     
-    func setRate(_ value: Float?) -> Self {
+    public func setRate(_ value: Float?) -> Self {
         updatePlayer(value, of: \.rate)
         return self
     }

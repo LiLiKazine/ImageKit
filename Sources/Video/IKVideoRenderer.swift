@@ -26,11 +26,12 @@ struct IKVideoRenderer: View {
         ZStack {
             if currentPlaying.isPlaying && currentPlaying.uuid == binder.id {
                 IKVideoPlayer()
+                    .hideBuiltInControls(binder.hideBuiltInControls)
             } else {
                 Cover(image: binder.cover, duration: binder.duration)
             }
             
-            if binder.showControl {
+            if binder.showCustomControl {
                 PlayButton(isPlaying: currentPlaying.isPlaying) {
                     if currentPlaying.isPlaying {
                         pause()
@@ -50,9 +51,8 @@ struct IKVideoRenderer: View {
         }
         .task {
             binder.load(with: context.source)
-            binder.setup(contorlVisiblity: context.controlVisibility)
+            binder.setup(controlVisiblity: context.controlVisibility)
         }
-        
     }
     
     

@@ -11,9 +11,7 @@ import Combine
 
 @Observable
 class PlayingVideo {
-    
-    var hideBuiltInControls: Bool
-
+        
     private(set) var player: AVPlayer?
     
     private(set) var isPlaying: Bool = false
@@ -21,9 +19,7 @@ class PlayingVideo {
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(hideBuiltInControls: Bool = false) {
-        self.hideBuiltInControls = hideBuiltInControls
-    }
+    init() {}
     
     static let shared = PlayingVideo()
     

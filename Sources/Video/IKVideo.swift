@@ -12,12 +12,11 @@ public struct IKVideo: View {
     
     let context: Context
     
-    @ControlAction var controlAction
+    @ControlAction private var controlAction
     
     public var body: some View {
         IKVideoRenderer(context: context, action: $controlAction)
             .environment(PlayingVideo.shared)
-            
     }
 }
 
@@ -26,7 +25,7 @@ extension IKVideo {
         self.init(context: .init(url: url))
     }
     
-    public init(localVideo: LocalVideo, controlVisiblity: ContorlVisiblity) {
+    public init(localVideo: LocalVideo, controlVisiblity: ControlVisiblity) {
         self.init(context: .init(localVideo: localVideo, controlVisiblity: controlVisiblity))
     }
     
@@ -39,6 +38,11 @@ extension IKVideo {
 }
 
 extension IKVideo {
+    
+    public enum Control: Equatable {
+        case play
+        case pause
+    }
     
     @propertyWrapper public class ControlAction : DynamicProperty {
         
@@ -77,5 +81,5 @@ extension IKVideo {
 
 #Preview {
     IKVideo(context: .demo)
-        .environment(PlayingVideo())
+        .environment(PlayingVideo.demo)
 }

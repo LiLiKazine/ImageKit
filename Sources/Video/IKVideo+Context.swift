@@ -18,14 +18,10 @@ public protocol LocalVideo {
 
 extension IKVideo {
         
-    public enum ContorlVisiblity {
+    public enum ControlVisiblity {
         case alwaysShow
         case alwaysHide
-    }
-    
-    public enum Control: Equatable {
-        case play
-        case pause
+        case builtIn
     }
     
     enum Source {
@@ -37,14 +33,14 @@ extension IKVideo {
     
     class Context {
         let source: Source
-        let controlVisibility: ContorlVisiblity
+        let controlVisibility: ControlVisiblity
 
-        init(source: Source, controlVisiblity: ContorlVisiblity) {
+        init(source: Source, controlVisiblity: ControlVisiblity) {
             self.source = source
             self.controlVisibility = controlVisiblity
         }
         
-        convenience init(localVideo: LocalVideo, controlVisiblity: ContorlVisiblity = .alwaysShow) {
+        convenience init(localVideo: LocalVideo, controlVisiblity: ControlVisiblity = .alwaysShow) {
             self.init(source: .local(localVideo), controlVisiblity: controlVisiblity)
         }
         

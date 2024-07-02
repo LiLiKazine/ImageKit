@@ -14,7 +14,8 @@ extension IKVideo {
     class Binder: Identifiable {
         let id = UUID()
         
-        var showControl: Bool = false
+        var showCustomControl: Bool = false
+        var hideBuiltInControls: Bool = false
         
         var cover: UIImage?
         var duration: CMTime?
@@ -35,13 +36,9 @@ extension IKVideo {
             }
         }
         
-        func setup(contorlVisiblity: IKVideo.ContorlVisiblity) {
-            switch contorlVisiblity {
-            case .alwaysShow:
-                self.showControl = true
-            case .alwaysHide:
-                self.showControl = false
-            }
+        func setup(controlVisiblity: IKVideo.ControlVisiblity) {
+            showCustomControl = controlVisiblity == .alwaysShow
+            hideBuiltInControls = controlVisiblity != .builtIn
         }
     }
     
