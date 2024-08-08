@@ -19,13 +19,20 @@ public struct IKImage: View, IKImagePresenter {
 }
 
 public extension IKImage {
+    init(retriver: DataRetriver) {
+        self.init(context: .init(retriver: retriver))
+    }
     
     init(systemName: String) {
         self.init(context: .init(systemName: systemName))
     }
+}
+
+public extension IKImage {
     
-    init(retriver: DataRetriver) {
-        self.init(context: .init(retriver: retriver))
+    init(relativePath: String) {
+        let retriver = LocalDataRetriver(relativePath: relativePath)
+        self.init(retriver: retriver)
     }
     
 }
