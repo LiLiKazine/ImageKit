@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/LiLiKazine/ArchiverKit.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "c9d46ae3780d8254078038ca93597b9e87987f33"
+        "revision" : "8454d9ca8f3b32a8c0b830ad73217ca97b31f68d",
+        "version" : "0.1.0"
       }
     }
   ],

@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/LiLiKazine/ArchiverKit.git", branch: "main"),
+        .package(url: "https://github.com/LiLiKazine/ArchiverKit.git", from: Version(0, 1, 0))
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
