@@ -78,9 +78,7 @@ extension IKVideo {
     
 }
 
-#if DEBUG
 #Preview {
     IKVideo(context: .demo)
         .environment(PlayingVideo.demo)
 }
-#endif

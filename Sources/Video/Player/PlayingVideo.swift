@@ -47,12 +47,10 @@ class PlayingVideo {
         player?.pause()
     }
     
-    #if DEBUG
     static let demo: PlayingVideo = {
         let url = URL(filePath: "/Users/lili/Developer/ImageKit/demo.mp4")
         let cur = PlayingVideo()
         cur.setup(player: AVPlayer(url: url))
         return cur
     }()
-    #endif
 }

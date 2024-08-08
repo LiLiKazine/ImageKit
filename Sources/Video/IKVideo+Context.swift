@@ -48,7 +48,6 @@ extension IKVideo {
             self.init(localVideo: VideoSource(url: url))
         }
         
-        #if DEBUG
         static let demo: Context =
         {
             let source = VideoSource(
@@ -58,7 +57,6 @@ extension IKVideo {
             )
             return .init(localVideo: source)
         }()
-        #endif
     }
     
 }
